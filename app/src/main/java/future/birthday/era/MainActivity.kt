@@ -1,19 +1,15 @@
 package future.birthday.era
 
-import android.content.res.Resources
-import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -187,11 +183,13 @@ fun TaskText(
     description: String,
     modifier: Modifier
 ) {
-    Column(modifier = modifier
-        .fillMaxSize()
-        .padding(16.dp),
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
             text = heading,
             fontWeight = FontWeight.Bold,
@@ -210,10 +208,14 @@ fun TaskBusinessCard(modifier: Modifier = Modifier) {
     Column(
         modifier
             .fillMaxWidth()
-            .background(colorResource(R.color.blue1)))
+            .background(colorResource(R.color.blue1))
+    )
     {
         Column(
-            modifier.weight(0.6f).padding(top = 32.dp).align(Alignment.CenterHorizontally),
+            modifier
+                .weight(0.6f)
+                .padding(top = 32.dp)
+                .align(Alignment.CenterHorizontally),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -239,18 +241,38 @@ fun TaskBusinessCard(modifier: Modifier = Modifier) {
                     .padding(top = 16.dp)
             )
         }
-        Column(modifier.weight(0.4f).align(Alignment.CenterHorizontally).padding(bottom = 48.dp),
-            verticalArrangement = Arrangement.Bottom)
+        Column(
+            modifier
+                .weight(0.4f)
+                .align(Alignment.CenterHorizontally)
+                .padding(bottom = 48.dp),
+            verticalArrangement = Arrangement.Bottom
+        )
         {
-            BottomCard(painterResource(R.drawable.ic_call), "+11 (123) 444 555 666", colorResource(R.color.teal_700),modifier = modifier.padding(4.dp))
-            BottomCard(painterResource(R.drawable.ic_share), "@AndroidDev", colorResource(R.color.teal_700),modifier = modifier.padding(4.dp))
-            BottomCard(painterResource(R.drawable.ic_message), "jen.doe@android.com", colorResource(R.color.teal_700),modifier = modifier.padding(4.dp))
+            BottomCard(
+                painterResource(R.drawable.ic_call),
+                "+11 (123) 444 555 666",
+                colorResource(R.color.teal_700),
+                modifier = modifier.padding(4.dp)
+            )
+            BottomCard(
+                painterResource(R.drawable.ic_share),
+                "@AndroidDev",
+                colorResource(R.color.teal_700),
+                modifier = modifier.padding(4.dp)
+            )
+            BottomCard(
+                painterResource(R.drawable.ic_message),
+                "jen.doe@android.com",
+                colorResource(R.color.teal_700),
+                modifier = modifier.padding(4.dp)
+            )
         }
     }
 }
 
 @Composable
-fun BottomCard(image: Painter, text: String, color : Color, modifier: Modifier = Modifier) {
+fun BottomCard(image: Painter, text: String, color: Color, modifier: Modifier = Modifier) {
     Row(modifier) {
         Image(
             painter = image,
